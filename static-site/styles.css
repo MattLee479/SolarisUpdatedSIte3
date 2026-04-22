@@ -361,7 +361,14 @@ body.menu-open .menu-backdrop {
 }
 
 .mobile-panel .btn {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  gap: 0.6rem;
   margin-top: 8px;
+  padding-inline: 1.1rem;
+  text-align: center;
 }
 
 .site-header.menu-open .mobile-panel {
@@ -1462,8 +1469,8 @@ body.menu-open .menu-backdrop {
 
 @media (max-width: 920px) {
   [data-reveal] {
-    transform: translateY(12px);
-    transition-duration: 240ms;
+    transform: translateY(8px);
+    transition-duration: 180ms;
   }
 }
 

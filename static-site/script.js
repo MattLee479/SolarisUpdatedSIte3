@@ -79,35 +79,41 @@ document.querySelectorAll("[data-marquee]").forEach((marquee) => {
 
 if ("IntersectionObserver" in window) {
   const isMobileViewport = window.innerWidth <= 920;
-  const revealAheadDistance = isMobileViewport ? 0.7 : 0.12;
+  const revealAheadDistance = 0.12;
 
-  revealItems.forEach((item) => {
-    const rect = item.getBoundingClientRect();
-    if (rect.top <= window.innerHeight * (1 + revealAheadDistance)) {
-      item.classList.add("is-visible");
-    }
-  });
+  if (isMobileViewport) {
+    window.setTimeout(() => {
+      revealItems.forEach((item) => item.classList.add("is-visible"));
+    }, 80);
+  } else {
+    revealItems.forEach((item) => {
+      const rect = item.getBoundingClientRect();
+      if (rect.top <= window.innerHeight * (1 + revealAheadDistance)) {
+        item.classList.add("is-visible");
+      }
+    });
 
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("is-visible");
-          observer.unobserve(entry.target);
-        }
-      });
-    },
-    {
-      threshold: isMobileViewport ? 0.02 : 0.12,
-      rootMargin: `0px 0px ${Math.round(revealAheadDistance * 100)}% 0px`,
-    },
-  );
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.12,
+        rootMargin: `0px 0px ${Math.round(revealAheadDistance * 100)}% 0px`,
+      },
+    );
 
-  revealItems.forEach((item) => {
-    if (!item.classList.contains("is-visible")) {
-      observer.observe(item);
-    }
-  });
+    revealItems.forEach((item) => {
+      if (!item.classList.contains("is-visible")) {
+        observer.observe(item);
+      }
+    });
+  }
 } else {
   revealItems.forEach((item) => item.classList.add("is-visible"));
 }
