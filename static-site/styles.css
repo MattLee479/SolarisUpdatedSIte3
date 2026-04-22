@@ -191,10 +191,13 @@ body.menu-open .menu-backdrop {
 }
 
 .btn--primary {
+  position: relative;
   background: var(--primary);
   border-color: transparent;
   color: white;
   box-shadow: var(--shadow-glow);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
 }
 
 .btn--primary:hover {
@@ -2385,15 +2388,16 @@ body.brief-page {
 }
 
 .brief-page .btn-primary {
-  border: none;
+  border: 1px solid rgba(92, 149, 255, 0.34);
   color: #f7f8ff;
-  background: linear-gradient(135deg, var(--accent-2), var(--accent-3));
-  box-shadow: 0 14px 30px rgba(41, 112, 255, 0.24);
+  background: rgba(255, 255, 255, 0.04);
+  box-shadow: none;
 }
 
 .brief-page .btn-primary:hover {
   transform: translateY(-1px);
-  box-shadow: 0 18px 34px rgba(41, 112, 255, 0.3);
+  border-color: rgba(122, 169, 255, 0.5);
+  background: rgba(255, 255, 255, 0.08);
 }
 
 .brief-page .btn-secondary {
@@ -2450,6 +2454,11 @@ body.brief-page {
 .brief-page .wizard-footer-actions {
   display: flex;
   gap: 0.75rem;
+}
+
+.brief-page .wizard-footer-actions .btn-primary,
+.brief-page .wizard-footer-actions .btn-secondary {
+  min-width: 134px;
 }
 
 .brief-page .repeater-item,

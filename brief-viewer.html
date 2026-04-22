@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brief Viewer</title>
+  <meta name="description" content="Standalone JSON brief viewer">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&display=swap');
+
+    :root {
+      --color-bg: #ffffff;
+      --color-surface: #f9fafb;
+      --color-panel: #f4f5f7;
+      --color-text-primary: #0b0d10;
+      --color-text-secondary: #4b5563;
+      --color-text-muted: #6b7280;
+      --color-border: rgba(11, 13, 16, 0.12);
+      --color-accent: #c1121f;
+      --color-accent-soft: rgba(193, 18, 31, 0.08);
+      --font-heading: "DM Serif Display", serif;
+      --font-body: "Inter", system-ui, sans-serif;
+      --radius: 14px;
+      --radius-sm: 10px;
+      --shadow: 0 18px 40px rgba(0, 0, 0, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: var(--font-body);
+      color: var(--color-text-primary);
+      background:
+        radial-gradient(circle at top left, rgba(193, 18, 31, 0.07), transparent 28%),
+        linear-gradient(180deg, #fff 0%, #fbfbfc 100%);
+    }
+
+    .shell {
+      min-height: 100vh;
+      padding: 32px 20px 64px;
+    }
+
+    .container {
+      max-width: 1180px;
+      margin: 0 auto;
+    }
+
+    .hero {
+      text-align: center;
+      margin-bottom: 32px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 14px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--color-accent);
+    }
+
+    h1,
+    h2,
+    h3 {
+      margin: 0;
+      font-family: var(--font-heading);
+      font-weight: 400;
+      line-height: 1.1;
+    }
+
+    h1 {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      margin-bottom: 14px;
+    }
+
+    .hero p {
+      max-width: 720px;
+      margin: 0 auto;
+      color: var(--color-text-secondary);
+      line-height: 1.7;
+    }
+
+    .divider {
+      width: 88px;
+      height: 3px;
+      margin: 22px auto 0;
+      background: var(--color-accent);
+      border-radius: 999px;
+    }
+
+    .controls {
+      display: grid;
+      grid-template-columns: 1.1fr 1.4fr;
+      gap: 24px;
+      align-items: start;
+      margin-bottom: 28px;
+    }
+
+    .panel {
+      background: rgba(255, 255, 255, 0.92);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 22px;
+    }
+
+    .panel h2 {
+      font-size: 1.6rem;
+      margin-bottom: 10px;
+    }
+
+    .panel p {
+      margin: 0 0 16px;
+      color: var(--color-text-secondary);
+      line-height: 1.6;
+    }
+
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .btn,
+    .file-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 12px 18px;
+      border-radius: 10px;
+      border: 1px solid transparent;
+      background: var(--color-accent);
+      color: #fff;
+      font: inherit;
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: none;
+      transition: transform 0.18s ease, opacity 0.18s ease;
+    }
+
+    .btn:hover,
+    .file-button:hover {
+      transform: translateY(-1px);
+      opacity: 0.96;
+    }
+
+    .btn-secondary {
+      background: #fff;
+      color: var(--color-text-primary);
+      border-color: var(--color-border);
+    }
+
+    .field-label {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--color-text-primary);
+    }
+
+    .text-input,
+    .text-area {
+      width: 100%;
+      padding: 14px 16px;
+      border-radius: 10px;
+      border: 1px solid var(--color-border);
+      background: #fff;
+      font: inherit;
+      color: var(--color-text-primary);
+    }
+
+    .text-area {
+      min-height: 220px;
+      resize: vertical;
+    }
+
+    .hint {
+      margin-top: 10px;
+      color: var(--color-text-muted);
+      font-size: 0.92rem;
+    }
+
+    .status {
+      margin-bottom: 18px;
+      padding: 14px 16px;
+      border-radius: 12px;
+      border: 1px solid var(--color-border);
+      background: var(--color-panel);
+      color: var(--color-text-secondary);
+    }
+
+    .status.error {
+      color: #991b1b;
+      background: #fff2f2;
+      border-color: rgba(153, 27, 27, 0.18);
+    }
+
+    .status.success {
+      color: #14532d;
+      background: #f2fff5;
+      border-color: rgba(20, 83, 45, 0.15);
+    }
+
+    .result-shell {
+      background: rgba(255, 255, 255, 0.92);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 26px;
+    }
+
+    .result-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: end;
+      margin-bottom: 22px;
+    }
+
+    .result-meta {
+      color: var(--color-text-muted);
+      font-size: 0.95rem;
+    }
+
+    .brief-root {
+      display: grid;
+      gap: 18px;
+    }
+
+    .section-card {
+      border: 1px solid var(--color-border);
+      border-radius: 14px;
+      background: #fff;
+      overflow: hidden;
+    }
+
+    .section-head {
+      padding: 16px 18px;
+      background: var(--color-accent-soft);
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .section-head h3 {
+      font-size: 1.3rem;
+      margin-bottom: 6px;
+    }
+
+    .section-key {
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--color-text-muted);
+    }
+
+    .section-body {
+      padding: 18px;
+    }
+
+    .value-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .value-item {
+      padding: 14px;
+      border-radius: 12px;
+      border: 1px solid var(--color-border);
+      background: var(--color-surface);
+    }
+
+    .value-label {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--color-text-muted);
+    }
+
+    .value-content {
+      line-height: 1.6;
+      color: var(--color-text-primary);
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+
+    .collection {
+      display: grid;
+      gap: 14px;
+    }
+
+    .collection-item {
+      border: 1px solid var(--color-border);
+      border-radius: 12px;
+      background: var(--color-surface);
+      padding: 14px;
+    }
+
+    .collection-title {
+      margin-bottom: 10px;
+      font-weight: 700;
+      color: var(--color-text-primary);
+    }
+
+    .empty-state {
+      padding: 36px 24px;
+      border: 1px dashed var(--color-border);
+      border-radius: 14px;
+      text-align: center;
+      color: var(--color-text-muted);
+      background: linear-gradient(180deg, #fff, #fbfbfc);
+    }
+
+    .file-input {
+      display: none;
+    }
+
+    @media (max-width: 900px) {
+      .controls {
+        grid-template-columns: 1fr;
+      }
+
+      .value-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <div class="container">
+      <header class="hero">
+        <span class="eyebrow">Standalone Tool</span>
+        <h1>Brief JSON Viewer</h1>
+        <p>Load a JSON brief file, paste raw JSON, or point this viewer at a same-server JSON file using a URL path. It stays separate from the main website but keeps the same general look and feel.</p>
+        <div class="divider"></div>
+      </header>
+
+      <section class="controls">
+        <div class="panel">
+          <h2>Load A Brief</h2>
+          <p>Use this when somebody has sent you a `.json` file and you want to read it like a proper brief instead of raw code.</p>
+
+          <div class="button-row">
+            <label class="file-button" for="json-file">Choose JSON File</label>
+            <button class="btn btn-secondary" id="load-path-btn" type="button">Load From Path</button>
+            <button class="btn btn-secondary" id="load-text-btn" type="button">Render Pasted JSON</button>
+          </div>
+
+          <input class="file-input" id="json-file" type="file" accept=".json,application/json">
+
+          <label class="field-label" for="json-path">Optional same-server path</label>
+          <input class="text-input" id="json-path" type="text" placeholder="Example: briefs/client-brief.json">
+
+          <div class="hint">If this file is hosted on your live server, you can open `brief-viewer.html?src=briefs/client-brief.json` and it will load automatically.</div>
+        </div>
+
+        <div class="panel">
+          <h2>Paste Raw JSON</h2>
+          <p>If somebody pasted the brief into an email or message, drop it here and render it instantly.</p>
+          <label class="field-label" for="json-input">JSON content</label>
+          <textarea class="text-area" id="json-input" placeholder='{"clientName":"Example","projectType":"Book website"}'></textarea>
+        </div>
+      </section>
+
+      <div id="status" class="status">Waiting for a JSON brief.</div>
+
+      <section class="result-shell">
+        <div class="result-header">
+          <div>
+            <span class="eyebrow">Viewer Output</span>
+            <h2 id="result-title">No brief loaded yet</h2>
+          </div>
+          <div class="result-meta" id="result-meta">Load a file, paste JSON, or use `?src=`.</div>
+        </div>
+
+        <div id="brief-output" class="brief-root">
+          <div class="empty-state">Once a JSON brief is loaded, it will be turned into readable sections and cards here.</div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <script>
+    const fileInput = document.getElementById("json-file");
+    const jsonPathInput = document.getElementById("json-path");
+    const jsonTextInput = document.getElementById("json-input");
+    const loadPathBtn = document.getElementById("load-path-btn");
+    const loadTextBtn = document.getElementById("load-text-btn");
+    const statusEl = document.getElementById("status");
+    const outputEl = document.getElementById("brief-output");
+    const titleEl = document.getElementById("result-title");
+    const metaEl = document.getElementById("result-meta");
+
+    function prettifyKey(key) {
+      return String(key)
+        .replace(/[_-]+/g, " ")
+        .replace(/([a-z])([A-Z])/g, "$1 $2")
+        .replace(/\s+/g, " ")
+        .trim()
+        .replace(/\b\w/g, (char) => char.toUpperCase());
+    }
+
+    function isPrimitive(value) {
+      return value === null || ["string", "number", "boolean"].includes(typeof value);
+    }
+
+    function primitiveToString(value) {
+      if (value === null) return "None";
+      if (typeof value === "boolean") return value ? "Yes" : "No";
+      return String(value);
+    }
+
+    function setStatus(message, tone) {
+      statusEl.textContent = message;
+      statusEl.className = tone ? "status " + tone : "status";
+    }
+
+    function createValueItem(key, value) {
+      const item = document.createElement("div");
+      item.className = "value-item";
+      item.innerHTML = `
+        <span class="value-label">${prettifyKey(key)}</span>
+        <div class="value-content"></div>
+      `;
+      item.querySelector(".value-content").textContent = primitiveToString(value);
+      return item;
+    }
+
+    function renderArrayItem(value, index) {
+      const item = document.createElement("div");
+      item.className = "collection-item";
+
+      const title = document.createElement("div");
+      title.className = "collection-title";
+      title.textContent = "Item " + (index + 1);
+      item.appendChild(title);
+
+      if (isPrimitive(value)) {
+        const content = document.createElement("div");
+        content.className = "value-content";
+        content.textContent = primitiveToString(value);
+        item.appendChild(content);
+        return item;
+      }
+
+      if (Array.isArray(value)) {
+        item.appendChild(renderArray(value));
+        return item;
+      }
+
+      item.appendChild(renderObjectBody(value));
+      return item;
+    }
+
+    function renderArray(values) {
+      const wrap = document.createElement("div");
+      wrap.className = "collection";
+      values.forEach((value, index) => {
+        wrap.appendChild(renderArrayItem(value, index));
+      });
+      return wrap;
+    }
+
+    function renderObjectBody(objectValue) {
+      const container = document.createElement("div");
+      container.className = "brief-root";
+
+      const primitiveEntries = [];
+      const complexEntries = [];
+
+      Object.entries(objectValue).forEach(([key, value]) => {
+        if (isPrimitive(value)) {
+          primitiveEntries.push([key, value]);
+        } else {
+          complexEntries.push([key, value]);
+        }
+      });
+
+      if (primitiveEntries.length) {
+        const grid = document.createElement("div");
+        grid.className = "value-grid";
+        primitiveEntries.forEach(([key, value]) => {
+          grid.appendChild(createValueItem(key, value));
+        });
+        container.appendChild(grid);
+      }
+
+      complexEntries.forEach(([key, value]) => {
+        const card = document.createElement("section");
+        card.className = "section-card";
+
+        const head = document.createElement("div");
+        head.className = "section-head";
+        head.innerHTML = `
+          <div class="section-key">${key}</div>
+          <h3>${prettifyKey(key)}</h3>
+        `;
+
+        const body = document.createElement("div");
+        body.className = "section-body";
+        if (Array.isArray(value)) {
+          body.appendChild(renderArray(value));
+        } else {
+          body.appendChild(renderObjectBody(value));
+        }
+
+        card.appendChild(head);
+        card.appendChild(body);
+        container.appendChild(card);
+      });
+
+      return container;
+    }
+
+    function getDisplayTitle(data, sourceLabel) {
+      if (data && typeof data === "object" && !Array.isArray(data)) {
+        return (
+          data.title ||
+          data.projectName ||
+          data.projectTitle ||
+          data.clientName ||
+          data.name ||
+          sourceLabel ||
+          "Loaded Brief"
+        );
+      }
+      return sourceLabel || "Loaded Brief";
+    }
+
+    function renderBrief(data, sourceLabel) {
+      outputEl.innerHTML = "";
+      titleEl.textContent = getDisplayTitle(data, sourceLabel);
+      metaEl.textContent = sourceLabel || "Loaded JSON";
+
+      if (Array.isArray(data)) {
+        outputEl.appendChild(renderArray(data));
+        setStatus("Brief loaded successfully.", "success");
+        return;
+      }
+
+      if (data && typeof data === "object") {
+        outputEl.appendChild(renderObjectBody(data));
+        setStatus("Brief loaded successfully.", "success");
+        return;
+      }
+
+      const fallback = document.createElement("div");
+      fallback.className = "empty-state";
+      fallback.textContent = primitiveToString(data);
+      outputEl.appendChild(fallback);
+      setStatus("JSON loaded, but it contained a single plain value.", "success");
+    }
+
+    function parseAndRender(raw, sourceLabel) {
+      try {
+        const data = JSON.parse(raw);
+        renderBrief(data, sourceLabel);
+      } catch (error) {
+        setStatus("Could not parse that JSON. " + error.message, "error");
+      }
+    }
+
+    async function loadFromPath(path) {
+      if (!path) {
+        setStatus("Enter a file path first.", "error");
+        return;
+      }
+
+      setStatus("Loading JSON from " + path + "...", "");
+      try {
+        const response = await fetch(path, { cache: "no-store" });
+        if (!response.ok) {
+          throw new Error("HTTP " + response.status);
+        }
+        const text = await response.text();
+        parseAndRender(text, path);
+      } catch (error) {
+        setStatus("Could not load JSON from path. " + error.message, "error");
+      }
+    }
+
+    fileInput.addEventListener("change", async (event) => {
+      const file = event.target.files && event.target.files[0];
+      if (!file) return;
+
+      setStatus("Reading " + file.name + "...", "");
+      const text = await file.text();
+      parseAndRender(text, file.name);
+    });
+
+    loadTextBtn.addEventListener("click", () => {
+      const raw = jsonTextInput.value.trim();
+      if (!raw) {
+        setStatus("Paste some JSON first.", "error");
+        return;
+      }
+      parseAndRender(raw, "Pasted JSON");
+    });
+
+    loadPathBtn.addEventListener("click", () => {
+      loadFromPath(jsonPathInput.value.trim());
+    });
+
+    const params = new URLSearchParams(window.location.search);
+    const src = params.get("src");
+    if (src) {
+      jsonPathInput.value = src;
+      loadFromPath(src);
+    }
+  </script>
+</body>
+</html>

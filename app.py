@@ -132,7 +132,7 @@ def send_with_mailersend(brief_data: dict, brief_json: str, uploaded_files: list
 
     attachments = [
         {
-            "filename": "website-brief.json",
+            "filename": "website-brief.txt",
             "content": base64.b64encode(brief_json.encode("utf-8")).decode("utf-8"),
             "disposition": "attachment",
         }
