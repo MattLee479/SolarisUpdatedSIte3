@@ -1,0 +1,1311 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solaris AI Brief Builder</title>
+    <meta
+      name="description"
+      content="Fill out the Solaris AI website brief builder so we can quote and plan your custom site clearly."
+    >
+    <link rel="icon" href="assets/SolarisAISmallLogo.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+    >
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body class="brief-page" data-brief-endpoint="/submit-brief">
+    <div class="menu-backdrop" hidden></div>
+    <svg class="icon-sprite" aria-hidden="true" focusable="false">
+      <symbol id="icon-sparkles" viewBox="0 0 24 24">
+        <path d="M12 3l1.2 4.3L17.5 8.5l-4.3 1.2L12 14l-1.2-4.3L6.5 8.5l4.3-1.2L12 3Z"></path>
+        <path d="M18.5 2l.5 1.8L20.8 4l-1.8.5-.5 1.8-.5-1.8L16.2 4l1.8-.2.5-1.8Z"></path>
+        <path d="M18.5 14l.8 2.7 2.7.8-2.7.8-.8 2.7-.8-2.7-2.7-.8 2.7-.8.8-2.7Z"></path>
+      </symbol>
+      <symbol id="icon-menu" viewBox="0 0 24 24">
+        <path d="M4 7h16"></path>
+        <path d="M4 12h16"></path>
+        <path d="M4 17h16"></path>
+      </symbol>
+      <symbol id="icon-arrow-right" viewBox="0 0 24 24">
+        <path d="M5 12h14"></path>
+        <path d="m13 6 6 6-6 6"></path>
+      </symbol>
+      <symbol id="icon-mail" viewBox="0 0 24 24">
+        <rect x="3" y="5" width="18" height="14" rx="3"></rect>
+        <path d="m5 8 7 5 7-5"></path>
+      </symbol>
+      <symbol id="icon-message" viewBox="0 0 24 24">
+        <path d="M21 11.5A8.5 8.5 0 0 1 12.5 20H8l-5 3 1.8-5A8.5 8.5 0 1 1 21 11.5Z"></path>
+      </symbol>
+      <symbol id="icon-map-pin" viewBox="0 0 24 24">
+        <path d="M12 21s-6-5.4-6-11a6 6 0 1 1 12 0c0 5.6-6 11-6 11Z"></path>
+        <circle cx="12" cy="10" r="2.2"></circle>
+      </symbol>
+      <symbol id="icon-phone" viewBox="0 0 24 24">
+        <path
+          d="M21 16.2v2.8a2 2 0 0 1-2.2 2A17.8 17.8 0 0 1 3 5.2 2 2 0 0 1 5 3h2.8a2 2 0 0 1 2 1.7l.5 3a2 2 0 0 1-.6 1.8l-1.3 1.3a14 14 0 0 0 5.6 5.6l1.3-1.3a2 2 0 0 1 1.8-.6l3 .5a2 2 0 0 1 1.7 2Z"
+        ></path>
+      </symbol>
+      <symbol id="icon-facebook" viewBox="0 0 24 24">
+        <path d="M14 8h3V4h-3a5 5 0 0 0-5 5v3H6v4h3v4h4v-4h3l1-4h-4V9a1 1 0 0 1 1-1Z"></path>
+      </symbol>
+      <symbol id="icon-instagram" viewBox="0 0 24 24">
+        <rect x="4" y="4" width="16" height="16" rx="5"></rect>
+        <circle cx="12" cy="12" r="3.5"></circle>
+        <path d="M17 7.5h.01"></path>
+      </symbol>
+      <symbol id="icon-tiktok" viewBox="0 0 24 24">
+        <path
+          d="M14 4v9.2a3.2 3.2 0 1 1-3-3.2V7.3a6.6 6.6 0 1 0 6 6.6V9.7c1 .8 2.2 1.3 3.5 1.4V8.2c-1.5-.2-2.8-1.4-3.4-3.2H14Z"
+        ></path>
+      </symbol>
+      <symbol id="icon-whatsapp" viewBox="0 0 24 24">
+        <path d="M12 20a8 8 0 1 0-4.9-1.7L4 20l1.9-3.1A8 8 0 0 0 12 20Z"></path>
+        <path d="M9.6 8.9c.2-.4.5-.4.7-.4h.5c.2 0 .3.1.4.3l.6 1.5c.1.2 0 .3-.1.5l-.4.5c-.1.1-.1.2-.1.4.4.8 1 1.5 1.7 2 .1.1.3.1.4 0l.5-.3c.2-.1.3-.1.5 0l1.5.7c.2.1.3.2.3.4v.5c0 .2 0 .6-.5.8-.7.3-1.5.3-2.1 0-1.9-.8-3.7-2.6-4.5-4.4-.4-.8-.4-1.7 0-2.5Z"></path>
+      </symbol>
+    </svg>
+
+    <header class="site-header" id="top">
+      <div class="container">
+        <div class="header-shell">
+          <a class="brand" href="index.html#top" aria-label="Solaris AI home">
+            <span class="brand__glow"></span>
+            <img src="assets/solaris-logo.png" alt="Solaris AI logo">
+          </a>
+
+          <nav class="nav-links" aria-label="Primary">
+            <a href="index.html#services">Services</a>
+            <a href="index.html#examples">Work</a>
+            <a href="index.html#reviews">Reviews</a>
+            <a href="index.html#contact">Contact</a>
+          </nav>
+
+          <a class="btn btn--primary btn--small desktop-cta" href="index.html">
+            <svg><use href="#icon-arrow-right"></use></svg>
+            <span>Back Home</span>
+          </a>
+
+          <button
+            class="mobile-toggle"
+            type="button"
+            aria-expanded="false"
+            aria-controls="mobile-panel"
+            aria-label="Toggle menu"
+          >
+            <span class="mobile-toggle__glyph" aria-hidden="true">&#9776;</span>
+          </button>
+        </div>
+
+        <div class="mobile-panel" id="mobile-panel">
+          <a href="index.html#services">Services</a>
+          <a href="index.html#examples">Work</a>
+          <a href="index.html#reviews">Reviews</a>
+          <a href="index.html#contact">Contact</a>
+          <a class="btn btn--primary btn--small" href="index.html">
+            <svg><use href="#icon-arrow-right"></use></svg>
+            <span>Back Home</span>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main class="brief-main">
+      <section class="brief-builder" id="brief-builder">
+        <div class="container">
+        <header class="wizard-header">
+            <h1 class="wizard-title">Website Brief Builder</h1>
+            <p class="wizard-subtitle">Let&rsquo;s shape your website properly before we build it.</p>
+        </header>
+
+        <div class="progress-container">
+            <div class="progress-bar-wrapper">
+                <div class="progress-bar" id="progressBar"></div>
+            </div>
+            <div class="progress-steps" id="progressSteps">
+                <div class="progress-step active">Business</div>
+                <div class="progress-step">Pages</div>
+                <div class="progress-step">Features</div>
+                <div class="progress-step">Branding</div>
+                <div class="progress-step">Budget & Review</div>
+            </div>
+        </div>
+
+        <div class="alert alert-info" id="autoSaveAlert" aria-live="polite">
+            <span>&#128190;</span>
+            <span>Your progress is automatically saved. You can return anytime to continue!</span>
+        </div>
+
+        <form id="briefForm">
+            <!-- Honeypot -->
+            <input type="text" name="website" class="honeypot" tabindex="-1" autocomplete="off">
+
+            <div class="wizard-card">
+                <!-- Step 1: Business & Contact -->
+                <div class="step-content active" data-step="1">
+                    <h2 class="section-title">Business & Contact Information</h2>
+
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label class="form-label" for="businessName">
+                                Business Name<span class="required">*</span>
+                            </label>
+                            <input type="text" id="businessName" name="businessName" class="form-input" required>
+                            <div class="form-error">Please enter your business name</div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="contactName">
+                                Contact Name<span class="required">*</span>
+                            </label>
+                            <input type="text" id="contactName" name="contactName" class="form-input" required>
+                            <div class="form-error">Please enter your name</div>
+                        </div>
+                    </div>
+
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label class="form-label" for="email">
+                                Email<span class="required">*</span>
+                            </label>
+                            <input type="email" id="email" name="email" class="form-input" required>
+                            <div class="form-error">Please enter a valid email address</div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="phone">
+                                Phone
+                            </label>
+                            <input type="tel" id="phone" name="phone" class="form-input">
+                        </div>
+                    </div>
+
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label class="form-label" for="businessType">
+                                Business Type<span class="required">*</span>
+                            </label>
+                            <select id="businessType" name="businessType" class="form-select" required>
+                                <option value="">Select...</option>
+                                <option value="restaurant">Restaurant / Café</option>
+                                <option value="retail">Retail / Shop</option>
+                                <option value="services">Professional Services</option>
+                                <option value="health">Health & Wellness</option>
+                                <option value="beauty">Beauty & Spa</option>
+                                <option value="fitness">Fitness & Gym</option>
+                                <option value="trade">Trades (Plumber, Electrician, etc.)</option>
+                                <option value="creative">Creative / Agency</option>
+                                <option value="education">Education / Training</option>
+                                <option value="events">Events & Hospitality</option>
+                                <option value="other">Other</option>
+                            </select>
+                            <div class="form-error">Please select a business type</div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="location">
+                                Location / Country
+                            </label>
+                            <input type="text" id="location" name="location" class="form-input" placeholder="e.g., London, UK">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="projectDescription">
+                            Short Project Description<span class="required">*</span>
+                        </label>
+                        <textarea id="projectDescription" name="projectDescription" class="form-textarea" rows="3" required></textarea>
+                        <div class="form-helper">Briefly describe what you need (2-4 lines)</div>
+                        <div class="form-error">Please describe your project</div>
+                    </div>
+                </div>
+
+                <!-- Step 2: Pages & Navigation -->
+                <div class="step-content" data-step="2">
+                    <h2 class="section-title">Pages & Navigation</h2>
+                    <div class="form-helper" style="margin-bottom: 24px;">Add all the pages you need for your website</div>
+
+                    <div id="pagesRepeater"></div>
+                    <button type="button" class="btn-add" onclick="addPage()">+ Add Page</button>
+
+                    <div class="form-group" style="margin-top: 32px;">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="needBooking" name="needBooking">
+                            <label for="needBooking">I need to take bookings/appointments</label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 3: Features & Integrations -->
+                <div class="step-content" data-step="3">
+                    <h2 class="section-title">Features & Integrations</h2>
+
+                    <div class="form-group">
+                        <label class="form-label">Features (select all that apply)</label>
+                        <div class="checkbox-group" id="featuresGroup">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="feat_domain" name="features" value="Custom domain">
+                                <label for="feat_domain">Custom Domain</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="feat_contact" name="features" value="Contact form">
+                                <label for="feat_contact">Contact form</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="feat_gallery" name="features" value="Gallery">
+                                <label for="feat_gallery">Gallery</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="feat_booking" name="features" value="Booking system">
+                                <label for="feat_booking">Booking system</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="feat_reviews" name="features" value="Reviews">
+                                <label for="feat_reviews">Reviews</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="feat_faq" name="features" value="FAQ">
+                                <label for="feat_faq">FAQ</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="feat_pricing" name="features" value="Pricing tables">
+                                <label for="feat_pricing">Pricing tables</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="feat_newsletter" name="features" value="Newsletter signup">
+                                <label for="feat_newsletter">Newsletter signup</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="feat_map" name="features" value="Map">
+                                <label for="feat_map">Map</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="feat_whatsapp" name="features" value="WhatsApp button">
+                                <label for="feat_whatsapp">WhatsApp button</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="feat_social" name="features" value="Social feed">
+                                <label for="feat_social">Social feed</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="feat_seo" name="features" value="SEO basics">
+                                <label for="feat_seo">Advanced SEO</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="feat_cookie" name="features" value="Cookie banner">
+                                <label for="feat_cookie">Cookie banner</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3 style="font-size: 1.25rem; font-weight: 700; margin: 40px 0 24px;">Integrations</h3>
+                    
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label class="form-label" for="int_facebook">Facebook</label>
+                            <input type="url" id="int_facebook" name="int_facebook" class="form-input" placeholder="Facebook URL">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="int_instagram">Instagram</label>
+                            <input type="text" id="int_instagram" name="int_instagram" class="form-input" placeholder="@username">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="int_tiktok">TikTok</label>
+                            <input type="text" id="int_tiktok" name="int_tiktok" class="form-input" placeholder="@username">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="int_linkedin">LinkedIn</label>
+                            <input type="url" id="int_linkedin" name="int_linkedin" class="form-input" placeholder="LinkedIn URL">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="int_google">Google Business</label>
+                            <input type="url" id="int_google" name="int_google" class="form-input" placeholder="Google Business URL">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="int_booking_tool">Existing Booking Tool</label>
+                            <input type="text" id="int_booking_tool" name="int_booking_tool" class="form-input" placeholder="Tool name or URL">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="int_domain">Custom Domain You Want</label>
+                            <input type="text" id="int_domain" name="int_domain" class="form-input" placeholder="yourdomain.com">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="int_old_website">Old Website URL</label>
+                            <input type="url" id="int_old_website" name="int_old_website" class="form-input" placeholder="https://...">
+                        </div>
+                    </div>
+                </div>
+
+        
+                <!-- Step 4: Branding & Assets -->
+                <div class="step-content" data-step="4">
+                    <h2 class="section-title">Branding & Assets</h2>
+
+                    <div class="form-group">
+                        <label class="form-label">Upload Files (Logo, Photos, Menus, etc.)</label>
+                        <div class="file-upload-zone" id="fileUploadZone">
+                            <div class="file-upload-icon">📁</div>
+                            <div class="file-upload-text">Drag & drop files here or click to browse</div>
+                            <div class="file-upload-subtext">webp, JPG, SVG, PDF · Up to 10 files or 25MB total</div>
+                        </div>
+                        <input type="file" id="fileInput" class="file-input-hidden" multiple accept="image/webp,image/jpeg,image/svg+xml,application/pdf">
+                        <div id="filePreviewGrid" class="file-preview-grid"></div>
+                        <div class="form-helper" id="fileSizeHelper">0 MB / 25 MB</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Brand Colors</label>
+                        <div class="color-picker-group">
+                            <div class="color-picker-item">
+                                <label class="form-label" for="colorPrimary">Primary Color</label>
+                                <input type="color" id="colorPrimary" name="colorPrimary" class="color-picker-input" value="#2563eb">
+                                <input type="text" id="colorPrimaryHex" name="colorPrimaryHex" class="form-input" value="#2563eb" style="margin-top: 8px;" placeholder="#000000">
+                            </div>
+                            <div class="color-picker-item">
+                                <label class="form-label" for="colorSecondary">Secondary Color</label>
+                                <input type="color" id="colorSecondary" name="colorSecondary" class="color-picker-input" value="#9333ea">
+                                <input type="text" id="colorSecondaryHex" name="colorSecondaryHex" class="form-input" value="#9333ea" style="margin-top: 8px;" placeholder="#000000">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="logoText">Logo Text (if no logo file)</label>
+                        <input type="text" id="logoText" name="logoText" class="form-input" placeholder="Your business name">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="fontPreference">Font Preference</label>
+                        <input type="text" id="fontPreference" name="fontPreference" class="form-input" placeholder="e.g., Modern sans-serif, Classic serif, Playful">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Example Websites You Like</label>
+                        <div id="exampleSitesRepeater"></div>
+                        <button type="button" class="btn-add" onclick="addExampleSite()">+ Add Example</button>
+                    </div>
+                </div>
+
+                <!-- Step 5: Budget, Timeline & Review -->
+                <div class="step-content" data-step="5">
+                    <h2 class="section-title">Budget & Timeline</h2>
+
+                    <div class="form-group">
+                        <label class="form-label">Budget Range<span class="required">*</span></label>
+                        <div style="display: grid; gap: 12px;">
+                            <div class="checkbox-item">
+                                <input type="radio" id="budget1" name="budget" value="£150-£250" required>
+                                <label for="budget1">£150 - £250</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="radio" id="budget2" name="budget" value="£250-£500">
+                                <label for="budget2">£250 - £500</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="radio" id="budget3" name="budget" value="£500-£1,000">
+                                <label for="budget3">£500 - £1,000</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="radio" id="budget4" name="budget" value="other">
+                                <label for="budget4">Other (please specify below)</label>
+                            </div>
+                        </div>
+                        <input type="text" id="budgetOther" name="budgetOther" class="form-input" placeholder="Enter your budget range" style="margin-top: 12px; display: none;">
+                        <div class="form-error">Please select a budget range</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="goLiveDate">Desired Go-Live Date</label>
+                        <input type="date" id="goLiveDate" name="goLiveDate" class="form-input">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Ongoing Needs (select all that apply)</label>
+                        <div class="checkbox-group">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="ongoing_maintenance" name="ongoing" value="Maintenance">
+                                <label for="ongoing_maintenance">Maintenance</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="ongoing_copy" name="ongoing" value="Copywriting">
+                                <label for="ongoing_copy">Copywriting</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="ongoing_images" name="ongoing" value="Stock images">
+                                <label for="ongoing_images">Stock images</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="ongoing_seo" name="ongoing" value="SEO">
+                                <label for="ongoing_seo">SEO</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="ongoing_speed" name="ongoing" value="Speed optimization">
+                                <label for="ongoing_speed">Speed optimization</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="additionalNotes">Additional Notes</label>
+                        <textarea id="additionalNotes" name="additionalNotes" class="form-textarea" rows="4" placeholder="Anything else we should know?"></textarea>
+                    </div>
+
+                    <hr style="border: none; border-top: 1px solid rgba(131, 157, 255, 0.16); margin: 48px 0;">
+
+                    <h2 class="section-title">Review Your Brief</h2>
+                    <div id="reviewContent"></div>
+                </div>
+
+                <div class="wizard-footer">
+                    <div>
+                        <button type="button" class="btn-ghost" onclick="resetForm()">Reset Form</button>
+                    </div>
+                    <div class="wizard-footer-actions">
+                        <button type="button" class="btn-secondary" id="prevBtn" onclick="changeStep(-1)" style="display: none;">← Back</button>
+                        <button type="button" class="btn-primary" id="nextBtn" onclick="changeStep(1)">Next →</button>
+                        <button type="button" class="btn-primary" id="submitBtn" onclick="submitBrief()" style="display: none;">Submit Brief 🚀</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+        <div class="wizard-card success-screen" id="successScreen">
+            <div class="success-icon">🎉</div>
+            <h2 class="success-title">Brief Submitted Successfully!</h2>
+            <p class="success-message">Thank you! We've received your brief and will contact you within 24 hours.</p>
+            <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+                <button class="btn-primary" onclick="downloadJSON()">Download Brief (JSON)</button>
+                <button class="btn-secondary" onclick="location.reload()">Start New Brief</button>
+            </div>
+        </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="site-footer__line"></div>
+      <div class="site-footer__glow site-footer__glow--left"></div>
+      <div class="site-footer__glow site-footer__glow--right"></div>
+
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand" data-reveal>
+            <h3>Solaris AI</h3>
+            <p>
+              Custom coding websites for all businesses while utilising modern
+              software to offer better prices.
+            </p>
+          </div>
+
+          <div class="footer-links" data-reveal>
+            <h4>Quick Links</h4>
+            <a href="index.html#services">Services &amp; Pricing</a>
+            <a href="index.html#examples">Examples</a>
+            <a href="brief.html">Brief Builder</a>
+            <a href="index.html#contact">Contact Me</a>
+          </div>
+
+          <div class="footer-contact" data-reveal>
+            <h4>Connect With Me</h4>
+            <div class="footer-contact__details">
+              <span><svg><use href="#icon-map-pin"></use></svg>Worcester, West Midlands, England</span>
+              <a href="tel:07557169678"><svg><use href="#icon-phone"></use></svg>07557 169678</a>
+              <a href="mailto:admin@solarisai.co.uk"><svg><use href="#icon-mail"></use></svg>admin@solarisai.co.uk</a>
+            </div>
+            <div class="social-grid">
+              <a
+                class="social-btn social-btn--facebook"
+                href="https://www.facebook.com/profile.php?id=61580148629984"
+                aria-label="Facebook"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <svg><use href="#icon-facebook"></use></svg>
+                <span>Follow me on<br>Facebook</span>
+              </a>
+              <a
+                class="social-btn social-btn--instagram"
+                href="https://www.instagram.com/solarisai.co.uk/"
+                aria-label="Instagram"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <svg><use href="#icon-instagram"></use></svg>
+                <span>Follow me on<br>Instagram</span>
+              </a>
+              <a
+                class="social-btn social-btn--tiktok"
+                href="https://www.tiktok.com/@getsolarisai?lang=en"
+                aria-label="TikTok"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <svg><use href="#icon-tiktok"></use></svg>
+                <span>Follow me on<br>Tiktok</span>
+              </a>
+              <a
+                class="social-btn social-btn--whatsapp"
+                href="https://wa.me/447557169678"
+                aria-label="Whatsapp"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <svg><use href="#icon-whatsapp"></use></svg>
+                <span>Message me on<br>WhatsApp</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-divider"></div>
+
+        <div class="footer-bottom">
+          <span>&copy; <span id="year"></span> Solaris AI. All rights reserved.</span>
+          <a href="#top" class="footer-logo" aria-label="Back to top">
+            <img src="assets/solaris-logo.png" alt="Solaris AI">
+          </a>
+          <span>Hand-coded with care in the UK.</span>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+// =========================
+// Website Brief (no booking) + Formspree submit
+// =========================
+
+// State management
+let currentStep = 1;
+const totalSteps = 5; // booking removed → 5 steps
+let pages = [];
+let exampleSites = [];
+let uploadedFiles = [];
+let totalFileSize = 0;
+const maxFileSize = 25 * 1024 * 1024; // 25MB
+const maxFiles = 10;
+let autoSaveTimer = null;
+const STORAGE_KEY = 'websiteBrief_session_v1';
+const OLD_STORAGE_KEYS = ['websiteBrief', 'websiteBrief_v2', 'websiteBrief_v3'];
+
+function createId() {
+  if (window.crypto && typeof window.crypto.randomUUID === 'function') {
+    return window.crypto.randomUUID();
+  }
+  return `id-${Date.now()}-${Math.random().toString(16).slice(2)}`;
+}
+
+function createBlankPage() {
+  return { id: createId(), title: '', slug: '', type: 'Custom', notes: '' };
+}
+
+function createBlankExampleSite() {
+  return { id: createId(), url: '', notes: '' };
+}
+
+// Initialize
+document.addEventListener('DOMContentLoaded', function() {
+  const navEntry = performance.getEntriesByType('navigation')[0];
+  const navType = navEntry ? navEntry.type : 'navigate';
+
+  OLD_STORAGE_KEYS.forEach((key) => localStorage.removeItem(key));
+
+  if (navType === 'reload' || navType === 'back_forward') {
+    loadFormData();
+  } else {
+    sessionStorage.removeItem(STORAGE_KEY);
+  }
+
+  if (!pages.length) {
+    addPage();
+  } else {
+    renderPages();
+  }
+  if (!exampleSites.length) {
+    renderExampleSites();
+  }
+  currentStep = 1;
+  showStep(currentStep);
+  updateProgress();
+  setupAutoSave();
+  setupFileUpload();
+  setupColorSync();
+  setupBudgetRadio();
+  window.scrollTo(0, 0);
+});
+
+// Auto-save functionality
+function setupAutoSave() {
+  const form = document.getElementById('briefForm');
+  let timeoutId;
+
+  form.addEventListener('input', function() {
+    clearTimeout(timeoutId);
+    timeoutId = setTimeout(function() {
+      saveFormData();
+      showAutoSaveAlert();
+    }, 2000);
+  });
+}
+
+function showAutoSaveAlert() {
+  const alert = document.getElementById('autoSaveAlert');
+  alert.classList.add('is-visible');
+  setTimeout(() => {
+    alert.classList.remove('is-visible');
+  }, 3000);
+}
+
+function saveFormData() {
+  const formData = new FormData(document.getElementById('briefForm'));
+  const data = {
+    version: 3,
+    step: currentStep,
+    fields: {},
+    pages: pages,
+    exampleSites: exampleSites,
+    // booking removed → no serviceTags needed
+    files: uploadedFiles.map(f => ({ name: f.name, size: f.size, type: f.type }))
+  };
+
+  for (let [key, value] of formData.entries()) {
+    if (key !== 'website') { // Skip honeypot
+      if (data.fields[key]) {
+        if (!Array.isArray(data.fields[key])) {
+          data.fields[key] = [data.fields[key]];
+        }
+        data.fields[key].push(value);
+      } else {
+        data.fields[key] = value;
+      }
+    }
+  }
+
+  sessionStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+}
+
+function loadFormData() {
+  const saved = sessionStorage.getItem(STORAGE_KEY);
+  if (!saved) return;
+
+  try {
+    const data = JSON.parse(saved);
+    if (!data || data.version !== 3) return;
+    
+    // Restore basic fields
+    Object.keys(data.fields || {}).forEach(key => {
+      const element = document.querySelector(`[name="${key}"]`);
+      if (element) {
+        if (element.type === 'checkbox' || element.type === 'radio') {
+          if (Array.isArray(data.fields[key])) {
+            data.fields[key].forEach(val => {
+              const el = document.querySelector(`[name="${key}"][value="${val}"]`);
+              if (el) el.checked = true;
+            });
+          } else {
+            element.checked = true;
+          }
+        } else {
+          element.value = data.fields[key];
+        }
+      }
+    });
+
+    // Restore complex data
+    if (Array.isArray(data.pages)) {
+      pages = data.pages
+        .filter(page => page && typeof page === 'object')
+        .map(page => ({
+          id: String(page.id || createId()),
+          title: typeof page.title === 'string' ? page.title : '',
+          slug: typeof page.slug === 'string' ? page.slug : '',
+          type: typeof page.type === 'string' ? page.type : 'Custom',
+          notes: typeof page.notes === 'string' ? page.notes : ''
+        }));
+    }
+
+    if (Array.isArray(data.exampleSites)) {
+      exampleSites = data.exampleSites
+        .filter(site => site && typeof site === 'object')
+        .map(site => ({
+          id: String(site.id || createId()),
+          url: typeof site.url === 'string' ? site.url : '',
+          notes: typeof site.notes === 'string' ? site.notes : ''
+        }));
+    }
+
+    renderPages();
+    renderExampleSites();
+  } catch (e) {
+    console.error('Error loading saved data:', e);
+  }
+}
+
+function resetForm() {
+  if (!confirm('Are you sure you want to reset the form? All data will be lost.')) return;
+  
+  sessionStorage.removeItem(STORAGE_KEY);
+  OLD_STORAGE_KEYS.forEach((key) => localStorage.removeItem(key));
+  location.reload();
+}
+
+// Step navigation
+function changeStep(direction) {
+  if (direction === 1 && !validateStep(currentStep)) {
+    return;
+  }
+
+  currentStep += direction;
+
+  // booking removed → no skipping logic
+  if (currentStep === totalSteps) {
+    renderReview();
+  }
+
+  showStep(currentStep);
+  updateProgress();
+  saveFormData();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function showStep(step) {
+  document.querySelectorAll('.step-content').forEach((el, index) => {
+    el.classList.toggle('active', index + 1 === step);
+  });
+
+  document.getElementById('prevBtn').style.display = step === 1 ? 'none' : 'inline-block';
+  document.getElementById('nextBtn').style.display = step === totalSteps ? 'none' : 'inline-block';
+  document.getElementById('submitBtn').style.display = step === totalSteps ? 'inline-block' : 'none';
+}
+
+function updateProgress() {
+  const progress = ((currentStep - 1) / (totalSteps - 1)) * 100;
+  document.getElementById('progressBar').style.width = progress + '%';
+
+  document.querySelectorAll('.progress-step').forEach((step, index) => {
+    step.classList.remove('active', 'completed');
+    if (index + 1 === currentStep) {
+      step.classList.add('active');
+    } else if (index + 1 < currentStep) {
+      step.classList.add('completed');
+    }
+  });
+}
+
+function validateStep(step) {
+  const stepElement = document.querySelector(`.step-content[data-step="${step}"]`);
+  const requiredFields = stepElement.querySelectorAll('[required]');
+  let isValid = true;
+
+  requiredFields.forEach(field => {
+    const errorEl = field.parentElement.querySelector('.form-error');
+    
+    if (!field.value.trim()) {
+      field.classList.add('error');
+      if (errorEl) errorEl.classList.add('show');
+      isValid = false;
+    } else if (field.type === 'email' && !isValidEmail(field.value)) {
+      field.classList.add('error');
+      if (errorEl) errorEl.classList.add('show');
+      isValid = false;
+    } else {
+      field.classList.remove('error');
+      if (errorEl) errorEl.classList.remove('show');
+    }
+  });
+
+  // Special validation for final step (budget)
+  if (step === totalSteps) {
+    const budgetChecked = document.querySelector('[name="budget"]:checked');
+    const firstBudgetRadio = document.querySelector('[name="budget"]');
+    if (!budgetChecked) {
+      isValid = false;
+      if (firstBudgetRadio) {
+        const err = firstBudgetRadio.closest('.form-group')?.querySelector('.form-error');
+        if (err) err.classList.add('show');
+      }
+    } else if (firstBudgetRadio) {
+      const err = firstBudgetRadio.closest('.form-group')?.querySelector('.form-error');
+      if (err) err.classList.remove('show');
+    }
+  }
+
+  return isValid;
+}
+
+function isValidEmail(email) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+
+// Pages repeater
+function addPage() {
+  pages.push(createBlankPage());
+  renderPages();
+  saveFormData();
+}
+
+function removePage(id) {
+  pages = pages.filter(p => String(p.id) !== String(id));
+  if (!pages.length) {
+    pages.push(createBlankPage());
+  }
+  renderPages();
+  saveFormData();
+}
+
+function renderPages() {
+  const container = document.getElementById('pagesRepeater');
+  container.innerHTML = pages.map((page, index) => `
+    <div class="repeater-item">
+      ${pages.length > 1 ? `<button type="button" class="repeater-remove" onclick="removePage('${page.id}')">×</button>` : ''}
+      <div class="form-group">
+        <label class="form-label">Page ${index + 1} Title<span class="required">*</span></label>
+        <input type="text" class="form-input" value="${page.title}" 
+          onchange="updatePage('${page.id}', 'title', this.value)" required>
+      </div>
+      <div class="form-grid">
+        <div class="form-group">
+          <label class="form-label">Slug (URL)</label>
+          <input type="text" class="form-input" value="${page.slug}" 
+            onchange="updatePage('${page.id}', 'slug', this.value)"
+            placeholder="${page.title ? slugify(page.title) : 'page-url'}">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Page Type</label>
+          <select class="form-select" onchange="updatePage('${page.id}', 'type', this.value)">
+            <option value="Home" ${page.type === 'Home' ? 'selected' : ''}>Home</option>
+            <option value="About" ${page.type === 'About' ? 'selected' : ''}>About</option>
+            <option value="Services" ${page.type === 'Services' ? 'selected' : ''}>Services</option>
+            <option value="Gallery" ${page.type === 'Gallery' ? 'selected' : ''}>Gallery</option>
+            <option value="Shop" ${page.type === 'Shop' ? 'selected' : ''}>Shop</option>
+            <option value="Blog" ${page.type === 'Blog' ? 'selected' : ''}>Blog</option>
+            <option value="Contact" ${page.type === 'Contact' ? 'selected' : ''}>Contact</option>
+            <option value="Custom" ${page.type === 'Custom' ? 'selected' : ''}>Custom</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Short Notes</label>
+        <textarea class="form-textarea" rows="2" 
+          onchange="updatePage('${page.id}', 'notes', this.value)">${page.notes}</textarea>
+      </div>
+    </div>
+  `).join('');
+}
+
+function updatePage(id, field, value) {
+  const page = pages.find(p => String(p.id) === String(id));
+  if (page) {
+    page[field] = value;
+    if (field === 'title' && !page.slug) {
+      page.slug = slugify(value);
+    }
+    renderPages();
+    saveFormData();
+  }
+}
+
+function slugify(text) {
+  return text.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+}
+
+// Example sites repeater
+function addExampleSite() {
+  exampleSites.push(createBlankExampleSite());
+  renderExampleSites();
+  saveFormData();
+}
+
+function removeExampleSite(id) {
+  exampleSites = exampleSites.filter(s => String(s.id) !== String(id));
+  renderExampleSites();
+  saveFormData();
+}
+
+function renderExampleSites() {
+  const container = document.getElementById('exampleSitesRepeater');
+  container.innerHTML = exampleSites.map((site, index) => `
+    <div class="repeater-item">
+      <button type="button" class="repeater-remove" onclick="removeExampleSite('${site.id}')">×</button>
+      <div class="form-group">
+        <label class="form-label">Website URL ${index + 1}</label>
+        <input type="url" class="form-input" value="${site.url}" 
+          onchange="updateExampleSite('${site.id}', 'url', this.value)"
+          placeholder="https://example.com">
+      </div>
+      <div class="form-group">
+        <label class="form-label">What do you like about it?</label>
+        <textarea class="form-textarea" rows="2" 
+          onchange="updateExampleSite('${site.id}', 'notes', this.value)">${site.notes}</textarea>
+      </div>
+    </div>
+  `).join('');
+}
+
+function updateExampleSite(id, field, value) {
+  const site = exampleSites.find(s => String(s.id) === String(id));
+  if (site) {
+    site[field] = value;
+    renderExampleSites();
+    saveFormData();
+  }
+}
+
+// File upload
+function setupFileUpload() {
+  const zone = document.getElementById('fileUploadZone');
+  const input = document.getElementById('fileInput');
+
+  zone.addEventListener('click', () => input.click());
+
+  zone.addEventListener('dragover', (e) => {
+    e.preventDefault();
+    zone.classList.add('drag-over');
+  });
+
+  zone.addEventListener('dragleave', () => {
+    zone.classList.remove('drag-over');
+  });
+
+  zone.addEventListener('drop', (e) => {
+    e.preventDefault();
+    zone.classList.remove('drag-over');
+    handleFiles(e.dataTransfer.files);
+  });
+
+  input.addEventListener('change', (e) => {
+    handleFiles(e.target.files);
+  });
+}
+
+function handleFiles(files) {
+  const newFiles = Array.from(files);
+  
+  if (uploadedFiles.length + newFiles.length > maxFiles) {
+    alert(`Maximum ${maxFiles} files allowed`);
+    return;
+  }
+
+  let newSize = totalFileSize;
+  newFiles.forEach(file => newSize += file.size);
+
+  if (newSize > maxFileSize) {
+    alert('Total file size exceeds 25MB limit');
+    return;
+  }
+
+  newFiles.forEach(file => {
+    uploadedFiles.push(file);
+    totalFileSize += file.size;
+  });
+
+  renderFilePreview();
+  updateFileSizeDisplay();
+}
+
+function removeFile(index) {
+  totalFileSize -= uploadedFiles[index].size;
+  uploadedFiles.splice(index, 1);
+  renderFilePreview();
+  updateFileSizeDisplay();
+}
+
+function renderFilePreview() {
+  const grid = document.getElementById('filePreviewGrid');
+  grid.innerHTML = uploadedFiles.map((file, index) => {
+    const isImage = file.type.startsWith('image/');
+    const preview = isImage ? URL.createObjectURL(file) : '📄';
+    
+    return `
+      <div class="file-preview-item">
+        <button type="button" class="file-preview-remove" onclick="removeFile(${index})">×</button>
+        ${isImage 
+          ? `<img src="${preview}" class="file-preview-img" alt="${file.name}">` 
+          : `<div style="height: 100px; display: flex; align-items: center; justify-content: center; font-size: 3rem;">${preview}</div>`
+        }
+        <div class="file-preview-name">${file.name}</div>
+        <div class="file-preview-size">${(file.size / 1024).toFixed(1)} KB</div>
+      </div>
+    `;
+  }).join('');
+}
+
+function updateFileSizeDisplay() {
+  const helper = document.getElementById('fileSizeHelper');
+  const mb = (totalFileSize / 1024 / 1024).toFixed(2);
+  helper.textContent = `${mb} MB / 25 MB`;
+}
+
+// Color picker sync
+function setupColorSync() {
+  const colorPrimary = document.getElementById('colorPrimary');
+  const colorPrimaryHex = document.getElementById('colorPrimaryHex');
+  const colorSecondary = document.getElementById('colorSecondary');
+  const colorSecondaryHex = document.getElementById('colorSecondaryHex');
+
+  colorPrimary.addEventListener('input', (e) => {
+    colorPrimaryHex.value = e.target.value;
+  });
+
+  colorPrimaryHex.addEventListener('input', (e) => {
+    if (/^#[0-9A-F]{6}$/i.test(e.target.value)) {
+      colorPrimary.value = e.target.value;
+    }
+  });
+
+  colorSecondary.addEventListener('input', (e) => {
+    colorSecondaryHex.value = e.target.value;
+  });
+
+  colorSecondaryHex.addEventListener('input', (e) => {
+    if (/^#[0-9A-F]{6}$/i.test(e.target.value)) {
+      colorSecondary.value = e.target.value;
+    }
+  });
+}
+
+// Budget radio logic
+function setupBudgetRadio() {
+  const radios = document.querySelectorAll('[name="budget"]');
+  const otherInput = document.getElementById('budgetOther');
+
+  radios.forEach(radio => {
+    radio.addEventListener('change', () => {
+      otherInput.style.display = radio.value === 'other' ? 'block' : 'none';
+    });
+  });
+}
+
+// Review rendering (no booking)
+function renderReview() {
+  const reviewContent = document.getElementById('reviewContent');
+  const formData = new FormData(document.getElementById('briefForm'));
+  
+  let html = '';
+
+  // Business Info
+  html += `
+    <div class="review-section">
+      <div class="review-section-title">
+        Business Information
+        <button type="button" class="review-edit-btn" onclick="editStep(1)">Edit</button>
+      </div>
+      <div class="review-content">
+        <div class="review-item">
+          <div class="review-label">Business Name</div>
+          <div class="review-value">${formData.get('businessName') || 'Not provided'}</div>
+        </div>
+        <div class="review-item">
+          <div class="review-label">Contact</div>
+          <div class="review-value">${formData.get('contactName')} · ${formData.get('email')}</div>
+        </div>
+        <div class="review-item">
+          <div class="review-label">Business Type</div>
+          <div class="review-value">${formData.get('businessType') || 'Not specified'}</div>
+        </div>
+        <div class="review-item">
+          <div class="review-label">Description</div>
+          <div class="review-value">${formData.get('projectDescription') || 'Not provided'}</div>
+        </div>
+      </div>
+    </div>
+  `;
+
+  // Pages
+  html += `
+    <div class="review-section">
+      <div class="review-section-title">
+        Pages (${pages.length})
+        <button type="button" class="review-edit-btn" onclick="editStep(2)">Edit</button>
+      </div>
+      <div class="review-content">
+        ${pages.map(page => `
+          <div class="review-item">
+            <div class="review-value"><strong>${page.title}</strong> (${page.type})</div>
+          </div>
+        `).join('')}
+      </div>
+    </div>
+  `;
+
+  // Features
+  const features = Array.from(document.querySelectorAll('[name="features"]:checked')).map(el => el.value);
+  html += `
+    <div class="review-section">
+      <div class="review-section-title">
+        Features (${features.length})
+        <button type="button" class="review-edit-btn" onclick="editStep(3)">Edit</button>
+      </div>
+      <div class="review-content">
+        <div class="review-value">${features.join(', ') || 'None selected'}</div>
+      </div>
+    </div>
+  `;
+
+  // Branding
+  html += `
+    <div class="review-section">
+      <div class="review-section-title">
+        Branding & Assets
+        <button type="button" class="review-edit-btn" onclick="editStep(4)">Edit</button>
+      </div>
+      <div class="review-content">
+        <div class="review-item">
+          <div class="review-label">Files Uploaded</div>
+          <div class="review-value">${uploadedFiles.length} files (${(totalFileSize / 1024 / 1024).toFixed(2)} MB)</div>
+        </div>
+        <div class="review-item">
+          <div class="review-label">Colors</div>
+          <div class="review-value">
+            <span style="display: inline-block; width: 20px; height: 20px; background: ${formData.get('colorPrimaryHex')}; border-radius: 4px; vertical-align: middle;"></span>
+            ${formData.get('colorPrimaryHex')} · 
+            <span style="display: inline-block; width: 20px; height: 20px; background: ${formData.get('colorSecondaryHex')}; border-radius: 4px; vertical-align: middle;"></span>
+            ${formData.get('colorSecondaryHex')}
+          </div>
+        </div>
+      </div>
+    </div>
+  `;
+
+  // Budget
+  const budget = formData.get('budget') === 'other' ? formData.get('budgetOther') : formData.get('budget');
+  html += `
+    <div class="review-section">
+      <div class="review-section-title">
+        Budget & Timeline
+        <button type="button" class="review-edit-btn" onclick="editStep(5)">Edit</button>
+      </div>
+      <div class="review-content">
+        <div class="review-item">
+          <div class="review-label">Budget</div>
+          <div class="review-value">${budget || 'Not specified'}</div>
+        </div>
+        <div class="review-item">
+          <div class="review-label">Go-Live Date</div>
+          <div class="review-value">${formData.get('goLiveDate') || 'Flexible'}</div>
+        </div>
+      </div>
+    </div>
+  `;
+
+  reviewContent.innerHTML = html;
+}
+
+function editStep(step) {
+  currentStep = step;
+  showStep(currentStep);
+  updateProgress();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+const BACKEND_ENDPOINT = document.body.dataset.briefEndpoint || "/submit-brief";
+
+function showSubmitError(msg) {
+  const helpText = location.protocol === "file:"
+    ? "This page needs the /submit-brief backend running to send the form.\n\nYou can still download the JSON, or email admin@solarisai.co.uk."
+    : "Please try again, or email admin@solarisai.co.uk.";
+  alert("Sorry, we couldn’t send your brief.\n\n" + msg + "\n\n" + helpText);
+}
+
+async function submitBrief() {
+  // final step (5) validation
+  if (!validateStep(totalSteps)) return;
+
+  // Honeypot
+  if (document.querySelector('[name="website"]').value) return;
+
+  const briefData = collectFormData();
+  window.briefData = briefData; // keep "Download JSON" working
+
+  // Build multipart body for your backend
+  const fd = new FormData();
+  fd.append("brief_json", JSON.stringify(briefData, null, 2));
+  uploadedFiles.forEach(file => fd.append("attachments", file, file.name));
+
+  try {
+    const res = await fetch(BACKEND_ENDPOINT, {
+      method: "POST",
+      body: fd
+    });
+    const payload = await res.json().catch(() => ({}));
+
+    if (!res.ok || payload.ok !== true) {
+      const msg = payload && (payload.error || JSON.stringify(payload));
+      showSubmitError(msg || `HTTP ${res.status}`);
+      return;
+    }
+
+    // Success UI
+    document.querySelector(".wizard-card:not(.success-screen)").style.display = "none";
+    document.getElementById("successScreen").classList.add("show");
+    sessionStorage.removeItem(STORAGE_KEY);
+    OLD_STORAGE_KEYS.forEach((key) => localStorage.removeItem(key));
+  } catch (e) {
+    showSubmitError(e.message || String(e));
+  }
+}
+
+function collectFormData() {
+  const formData = new FormData(document.getElementById('briefForm'));
+  const data = {
+    timestamp: new Date().toISOString(),
+    contact: {
+      businessName: formData.get('businessName'),
+      contactName: formData.get('contactName'),
+      email: formData.get('email'),
+      phone: formData.get('phone'),
+      businessType: formData.get('businessType'),
+      location: formData.get('location'),
+      description: formData.get('projectDescription')
+    },
+    pages: pages,
+    features: Array.from(document.querySelectorAll('[name="features"]:checked')).map(el => el.value),
+    integrations: {
+      facebook: formData.get('int_facebook'),
+      instagram: formData.get('int_instagram'),
+      tiktok: formData.get('int_tiktok'),
+      linkedin: formData.get('int_linkedin'),
+      googleBusiness: formData.get('int_google'),
+      bookingTool: formData.get('int_booking_tool'),
+      domain: formData.get('int_domain'),
+      oldWebsite: formData.get('int_old_website')
+    },
+    // booking removed → always null
+    booking: null,
+    branding: {
+      files: uploadedFiles.map(f => ({ name: f.name, size: f.size, type: f.type })),
+      primaryColor: formData.get('colorPrimaryHex'),
+      secondaryColor: formData.get('colorSecondaryHex'),
+      logoText: formData.get('logoText'),
+      fontPreference: formData.get('fontPreference'),
+      exampleSites: exampleSites
+    },
+    budget: formData.get('budget') === 'other' ? formData.get('budgetOther') : formData.get('budget'),
+    goLiveDate: formData.get('goLiveDate'),
+    ongoingNeeds: Array.from(document.querySelectorAll('[name="ongoing"]:checked')).map(el => el.value),
+    additionalNotes: formData.get('additionalNotes')
+  };
+
+  return data;
+}
+
+function downloadJSON() {
+  const data = window.briefData || collectFormData();
+  const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'website-brief.json';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+</script>
+</body>
+</html>
+
+

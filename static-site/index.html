@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Solaris AI - Custom Websites &amp; AI Chatbots from &pound;299</title>
+    <meta
+      name="description"
+      content="Solaris AI builds bespoke, custom-coded websites and AI chatbots. Free hosting where possible. Prices from just &pound;299."
+    />
+    <meta name="author" content="Solaris AI" />
+    <meta property="og:title" content="Solaris AI - Custom Websites &amp; AI Chatbots" />
+    <meta
+      property="og:description"
+      content="Bespoke, custom-coded websites and intelligent chatbots. From &pound;299."
+    />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="assets/SolarisAISmallLogo.ico" type="image/x-icon" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <div class="menu-backdrop" hidden></div>
+    <svg class="icon-sprite" aria-hidden="true" focusable="false">
+      <symbol id="icon-sparkles" viewBox="0 0 24 24">
+        <path d="M12 3l1.2 4.3L17.5 8.5l-4.3 1.2L12 14l-1.2-4.3L6.5 8.5l4.3-1.2L12 3Z" />
+        <path d="M18.5 2l.5 1.8L20.8 4l-1.8.5-.5 1.8-.5-1.8L16.2 4l1.8-.2.5-1.8Z" />
+        <path d="M18.5 14l.8 2.7 2.7.8-2.7.8-.8 2.7-.8-2.7-2.7-.8 2.7-.8.8-2.7Z" />
+      </symbol>
+      <symbol id="icon-menu" viewBox="0 0 24 24">
+        <path d="M4 7h16" />
+        <path d="M4 12h16" />
+        <path d="M4 17h16" />
+      </symbol>
+      <symbol id="icon-close" viewBox="0 0 24 24">
+        <path d="M6 6l12 12" />
+        <path d="M18 6 6 18" />
+      </symbol>
+      <symbol id="icon-arrow-right" viewBox="0 0 24 24">
+        <path d="M5 12h14" />
+        <path d="m13 6 6 6-6 6" />
+      </symbol>
+      <symbol id="icon-arrow-up-right" viewBox="0 0 24 24">
+        <path d="M7 17 17 7" />
+        <path d="M8 7h9v9" />
+      </symbol>
+      <symbol id="icon-star" viewBox="0 0 24 24">
+        <path d="m12 3 2.6 5.3 5.9.9-4.2 4.1 1 5.8L12 16.7 6.7 19l1-5.8-4.2-4.1 5.9-.9L12 3Z" />
+      </symbol>
+      <symbol id="icon-code" viewBox="0 0 24 24">
+        <path d="m9 8-4 4 4 4" />
+        <path d="m15 8 4 4-4 4" />
+        <path d="m13 5-2 14" />
+      </symbol>
+      <symbol id="icon-bot" viewBox="0 0 24 24">
+        <path d="M12 3v3" />
+        <rect x="4" y="7" width="16" height="11" rx="4" />
+        <path d="M9 12h.01" />
+        <path d="M15 12h.01" />
+        <path d="M9 16h6" />
+        <path d="M6 10H4" />
+        <path d="M20 10h-2" />
+      </symbol>
+      <symbol id="icon-palette" viewBox="0 0 24 24">
+        <path
+          d="M12 4a8 8 0 1 0 0 16h1.2a2.3 2.3 0 0 0 0-4.6H12a1.4 1.4 0 1 1 0-2.8h1.6A4.4 4.4 0 0 0 18 8.2 4.2 4.2 0 0 0 12 4Z"
+        />
+        <path d="M7.5 10.5h.01" />
+        <path d="M9.5 7.5h.01" />
+        <path d="M13.8 7.3h.01" />
+        <path d="M16.5 10.5h.01" />
+      </symbol>
+      <symbol id="icon-server" viewBox="0 0 24 24">
+        <rect x="4" y="4" width="16" height="6" rx="2" />
+        <rect x="4" y="14" width="16" height="6" rx="2" />
+        <path d="M8 7h.01" />
+        <path d="M8 17h.01" />
+        <path d="M12 7h6" />
+        <path d="M12 17h6" />
+      </symbol>
+      <symbol id="icon-rocket" viewBox="0 0 24 24">
+        <path d="M5 19c2-1 4.5-1.5 6.5-.6" />
+        <path d="M12 15 9 12c.2-3.3 2.4-5.8 6-7 1.2 3.6.7 5.8-2.6 9l-3.4 1Z" />
+        <path d="m14 10 3 3" />
+        <path d="M6.5 13.5 4 16l4 1-1 4 2.5-2.5" />
+      </symbol>
+      <symbol id="icon-chart" viewBox="0 0 24 24">
+        <path d="M5 19V5" />
+        <path d="M5 19h14" />
+        <path d="m8 14 3-3 3 2 4-5" />
+      </symbol>
+      <symbol id="icon-mail" viewBox="0 0 24 24">
+        <rect x="3" y="5" width="18" height="14" rx="3" />
+        <path d="m5 8 7 5 7-5" />
+      </symbol>
+      <symbol id="icon-message" viewBox="0 0 24 24">
+        <path d="M21 11.5A8.5 8.5 0 0 1 12.5 20H8l-5 3 1.8-5A8.5 8.5 0 1 1 21 11.5Z" />
+      </symbol>
+      <symbol id="icon-map-pin" viewBox="0 0 24 24">
+        <path d="M12 21s-6-5.4-6-11a6 6 0 1 1 12 0c0 5.6-6 11-6 11Z" />
+        <circle cx="12" cy="10" r="2.2" />
+      </symbol>
+      <symbol id="icon-phone" viewBox="0 0 24 24">
+        <path
+          d="M21 16.2v2.8a2 2 0 0 1-2.2 2A17.8 17.8 0 0 1 3 5.2 2 2 0 0 1 5 3h2.8a2 2 0 0 1 2 1.7l.5 3a2 2 0 0 1-.6 1.8l-1.3 1.3a14 14 0 0 0 5.6 5.6l1.3-1.3a2 2 0 0 1 1.8-.6l3 .5a2 2 0 0 1 1.7 2Z"
+        />
+      </symbol>
+      <symbol id="icon-facebook" viewBox="0 0 24 24">
+        <path d="M14 8h3V4h-3a5 5 0 0 0-5 5v3H6v4h3v4h4v-4h3l1-4h-4V9a1 1 0 0 1 1-1Z" />
+      </symbol>
+      <symbol id="icon-instagram" viewBox="0 0 24 24">
+        <rect x="4" y="4" width="16" height="16" rx="5" />
+        <circle cx="12" cy="12" r="3.5" />
+        <path d="M17 7.5h.01" />
+      </symbol>
+      <symbol id="icon-tiktok" viewBox="0 0 24 24">
+        <path
+          d="M14 4v9.2a3.2 3.2 0 1 1-3-3.2V7.3a6.6 6.6 0 1 0 6 6.6V9.7c1 .8 2.2 1.3 3.5 1.4V8.2c-1.5-.2-2.8-1.4-3.4-3.2H14Z"
+        />
+      </symbol>
+      <symbol id="icon-whatsapp" viewBox="0 0 24 24">
+        <path d="M12 20a8 8 0 1 0-4.9-1.7L4 20l1.9-3.1A8 8 0 0 0 12 20Z" />
+        <path d="M9.6 8.9c.2-.4.5-.4.7-.4h.5c.2 0 .3.1.4.3l.6 1.5c.1.2 0 .3-.1.5l-.4.5c-.1.1-.1.2-.1.4.4.8 1 1.5 1.7 2 .1.1.3.1.4 0l.5-.3c.2-.1.3-.1.5 0l1.5.7c.2.1.3.2.3.4v.5c0 .2 0 .6-.5.8-.7.3-1.5.3-2.1 0-1.9-.8-3.7-2.6-4.5-4.4-.4-.8-.4-1.7 0-2.5Z" />
+      </symbol>
+      <symbol id="icon-sparkle-mark" viewBox="0 0 24 24">
+        <path d="M12 2.5 14 10l7.5 2-7.5 2-2 7.5-2-7.5L2.5 12 10 10l2-7.5Z" />
+      </symbol>
+    </svg>
+
+    <header class="site-header" id="top">
+      <div class="container">
+        <div class="header-shell">
+          <a class="brand" href="#top" aria-label="Solaris AI home">
+            <span class="brand__glow"></span>
+            <img src="assets/solaris-logo.png" alt="Solaris AI logo" />
+          </a>
+
+          <nav class="nav-links" aria-label="Primary">
+            <a href="#services">Services</a>
+            <a href="#examples">Work</a>
+            <a href="#reviews">Reviews</a>
+            <a href="#contact">Contact</a>
+          </nav>
+
+          <a class="btn btn--primary btn--small desktop-cta" href="brief.html">
+            <svg><use href="#icon-sparkles"></use></svg>
+            <span>Try Builder</span>
+          </a>
+
+          <button
+            class="mobile-toggle"
+            type="button"
+            aria-expanded="false"
+            aria-controls="mobile-panel"
+            aria-label="Toggle menu"
+          >
+            <span class="mobile-toggle__glyph" aria-hidden="true">&#9776;</span>
+          </button>
+        </div>
+
+        <div class="mobile-panel" id="mobile-panel">
+          <a href="#services">Services</a>
+          <a href="#examples">Work</a>
+          <a href="#reviews">Reviews</a>
+          <a href="#contact">Contact</a>
+          <a class="btn btn--primary btn--small" href="brief.html">
+            <svg><use href="#icon-sparkles"></use></svg>
+            <span>Try Builder</span>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero__bg hero__bg--grid"></div>
+        <div class="hero__bg hero__bg--aurora"></div>
+        <div class="hero__orb hero__orb--left"></div>
+        <div class="hero__orb hero__orb--right"></div>
+        <div class="hero__noise"></div>
+
+        <div class="container hero__inner">
+          <div class="hero__content">
+            <div class="notice-pill is-visible" data-reveal style="--delay: 0.05s">
+              <span class="notice-pill__dot"></span>
+              <span>Starting at just £299 for a custom website</span>
+            </div>
+
+            <h1 class="hero__title is-visible" data-reveal style="--delay: 0.15s">
+              Websites that<br />
+              <span class="text-gradient-vivid">help yout</span><br />
+              <span class="hero__underline">business.</span>
+            </h1>
+
+            <p class="hero__lede is-visible" data-reveal style="--delay: 0.25s">
+              Solaris AI hand-codes premium websites and intelligent chatbots
+              &mdash; faster, smarter, and dramatically more affordable than
+              agencies and other freelancers.
+            </p>
+
+            <div class="hero__actions is-visible" data-reveal style="--delay: 0.35s">
+              <a class="btn btn--primary btn--large" href="brief.html">
+                <svg><use href="#icon-sparkles"></use></svg>
+                <span>Try our Website Builder</span>
+                <svg><use href="#icon-arrow-right"></use></svg>
+              </a>
+              <a class="btn btn--ghost btn--large" href="#examples">See our work</a>
+            </div>
+
+            <div class="trust-row is-visible" data-reveal style="--delay: 0.45s">
+              <div class="trust-row__stars">
+                <svg><use href="#icon-star"></use></svg>
+                <svg><use href="#icon-star"></use></svg>
+                <svg><use href="#icon-star"></use></svg>
+                <svg><use href="#icon-star"></use></svg>
+                <svg><use href="#icon-star"></use></svg>
+                <strong>5.0</strong>
+                <span>loved by clients</span>
+              </div>
+              <span class="trust-row__separator">&middot;</span>
+              <span>100% custom-coded</span>
+              <span class="trust-row__separator">&middot;</span>
+              <span>Free hosting available</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="marquee-band">
+        <div class="marquee-band__fade marquee-band__fade--left"></div>
+        <div class="marquee-band__fade marquee-band__fade--right"></div>
+        <div class="marquee marquee--features" data-marquee data-duration="36s">
+          <div class="marquee__group">
+            <div class="marquee__item"><span>CUSTOM CODED</span><svg><use href="#icon-sparkle-mark"></use></svg></div>
+            <div class="marquee__item"><span>AI CHATBOTS</span><svg><use href="#icon-sparkle-mark"></use></svg></div>
+            <div class="marquee__item"><span>FREE HOSTING</span><svg><use href="#icon-sparkle-mark"></use></svg></div>
+            <div class="marquee__item"><span>FROM &pound;299</span><svg><use href="#icon-sparkle-mark"></use></svg></div>
+            <div class="marquee__item"><span>BESPOKE DESIGN</span><svg><use href="#icon-sparkle-mark"></use></svg></div>
+            <div class="marquee__item"><span>LIGHTNING FAST</span><svg><use href="#icon-sparkle-mark"></use></svg></div>
+            <div class="marquee__item"><span>SEO READY</span><svg><use href="#icon-sparkle-mark"></use></svg></div>
+            <div class="marquee__item"><span>MADE IN THE UK</span><svg><use href="#icon-sparkle-mark"></use></svg></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section services-section" id="services">
+        <div class="section__glow section__glow--services"></div>
+        <div class="container">
+          <div class="section-heading section-heading--left" data-reveal>
+            <div class="eyebrow"><span></span>What we do</div>
+            <h2>
+              Everything you need to
+              <span class="text-gradient-vivid">stand out online.</span>
+            </h2>
+            <p>
+              From a single landing page to a full AI-powered platform
+              &mdash; we build it bespoke, with care, and at prices that others can't match.
+            </p>
+          </div>
+
+          <div class="services-grid">
+            <article class="service-card" data-reveal data-accent="violet">
+              <div class="service-card__orb"></div>
+              <div class="service-card__top">
+                <span class="service-card__icon">
+                  <svg><use href="#icon-code"></use></svg>
+                </span>
+                <span class="service-card__count">01</span>
+              </div>
+              <h3>Custom Websites</h3>
+              <p>
+                Hand-coded, lightning-fast websites built around your brand. No
+                templates, no bloat.
+              </p>
+            </article>
+
+            <article class="service-card" data-reveal data-accent="cyan">
+              <div class="service-card__orb"></div>
+              <div class="service-card__top">
+                <span class="service-card__icon">
+                  <svg><use href="#icon-bot"></use></svg>
+                </span>
+                <span class="service-card__count">02</span>
+              </div>
+              <h3>AI Chatbots</h3>
+              <p>
+                Custom-coded chatbots that handle leads, support, and bookings
+                24/7.
+              </p>
+            </article>
+
+            <article class="service-card" data-reveal data-accent="magenta">
+              <div class="service-card__orb"></div>
+              <div class="service-card__top">
+                <span class="service-card__icon">
+                  <svg><use href="#icon-palette"></use></svg>
+                </span>
+                <span class="service-card__count">03</span>
+              </div>
+              <h3>Brand &amp; UI Design</h3>
+              <p>
+                Distinctive visual identity and interfaces that feel premium from
+                first click.
+              </p>
+            </article>
+
+            <article class="service-card" data-reveal data-accent="blue">
+              <div class="service-card__orb"></div>
+              <div class="service-card__top">
+                <span class="service-card__icon">
+                  <svg><use href="#icon-server"></use></svg>
+                </span>
+                <span class="service-card__count">04</span>
+              </div>
+              <h3>Free Hosting</h3>
+              <p>
+                We host your site for free wherever possible &mdash; no surprise
+                monthly fees.
+              </p>
+            </article>
+
+            <article class="service-card" data-reveal data-accent="orchid">
+              <div class="service-card__orb"></div>
+              <div class="service-card__top">
+                <span class="service-card__icon">
+                  <svg><use href="#icon-rocket"></use></svg>
+                </span>
+                <span class="service-card__count">05</span>
+              </div>
+              <h3>SEO &amp; Performance</h3>
+              <p>
+                Built-in SEO, semantic markup and 90+ Lighthouse scores out of the
+                box.
+              </p>
+            </article>
+
+            <article class="service-card" data-reveal data-accent="sky">
+              <div class="service-card__orb"></div>
+              <div class="service-card__top">
+                <span class="service-card__icon">
+                  <svg><use href="#icon-chart"></use></svg>
+                </span>
+                <span class="service-card__count">06</span>
+              </div>
+              <h3>Ongoing Support</h3>
+              <p>
+                Updates, tweaks, and integrations whenever your business evolves.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section examples-section" id="examples">
+        <div class="container">
+          <div class="section-heading section-heading--split">
+            <div data-reveal>
+              <div class="eyebrow"><span></span>Selected work</div>
+              <h2>
+                Sites we&apos;ve
+                <span class="text-gradient-vivid">crafted recently.</span>
+              </h2>
+            </div>
+            <p data-reveal>
+              A snapshot of bespoke builds &mdash; every pixel hand-coded, every
+              interaction considered.
+            </p>
+          </div>
+
+          <div class="projects-grid">
+            <a
+              class="project-card project-card--has-preview"
+              data-reveal
+              href="https://williamleebooks.co.uk/"
+              target="_blank"
+              rel="noopener noreferrer"
+              style="--project-bg: radial-gradient(circle at 30% 20%, rgba(96, 112, 255, 0.8), transparent 55%), radial-gradient(circle at 80% 90%, rgba(108, 55, 196, 0.72), transparent 55%), rgba(18, 28, 79, 0.92); --project-image: url('assets/williamleebooks.png'); --project-position: center top;"
+            >
+              <div class="project-card__preview"></div>
+              <div class="project-card__mesh"></div>
+              <div class="project-card__shade"></div>
+              <div class="project-card__top">
+                <span class="project-card__year">2026</span>
+                <span class="project-card__arrow">
+                  <svg><use href="#icon-arrow-up-right"></use></svg>
+                </span>
+              </div>
+              <div class="project-card__number">01</div>
+              <div class="project-card__info">
+                <span>Author Website</span>
+                <h3>William Lee Books</h3>
+              </div>
+            </a>
+
+            <a
+              class="project-card project-card--has-preview"
+            href="https://hudsonnail.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              style="--project-bg: radial-gradient(circle at 30% 20%, rgba(0, 144, 255, 0.8), transparent 55%), radial-gradient(circle at 80% 90%, rgba(71, 101, 255, 0.7), transparent 55%), rgba(10, 39, 95, 0.92); --project-image: url('assets/hudsonnail.png'); --project-position: center top;"
+            >
+              <div class="project-card__preview"></div>
+              <div class="project-card__mesh"></div>
+              <div class="project-card__shade"></div>
+              <div class="project-card__top">
+                <span class="project-card__year">2025</span>
+                <span class="project-card__arrow">
+                  <svg><use href="#icon-arrow-up-right"></use></svg>
+                </span>
+              </div>
+              <div class="project-card__number">02</div>
+              <div class="project-card__info">
+                <span>Nail Salon</span>
+                <h3>Hudson Nails</h3>
+              </div>
+            </a>
+
+            <a
+              class="project-card project-card--has-preview"
+            href="https://sbmovers.co.uk/"
+              target="_blank"
+              rel="noopener noreferrer"
+              style="--project-bg: radial-gradient(circle at 30% 20%, rgba(176, 94, 255, 0.82), transparent 55%), radial-gradient(circle at 80% 90%, rgba(119, 38, 173, 0.72), transparent 55%), rgba(45, 18, 84, 0.92); --project-image: url('assets/sbmovers.png'); --project-position: center top;"
+            >
+              <div class="project-card__preview"></div>
+              <div class="project-card__mesh"></div>
+              <div class="project-card__shade"></div>
+              <div class="project-card__top">
+                <span class="project-card__year">2025</span>
+                <span class="project-card__arrow">
+                  <svg><use href="#icon-arrow-up-right"></use></svg>
+                </span>
+              </div>
+              <div class="project-card__number">03</div>
+              <div class="project-card__info">
+                <span>Moving Company</span>
+                <h3>SB Movers</h3>
+              </div>
+            </a>
+
+            <a
+              class="project-card project-card--has-preview"
+            href="https://wasautocenterdemo.onrender.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              style="--project-bg: radial-gradient(circle at 30% 20%, rgba(15, 163, 255, 0.8), transparent 55%), radial-gradient(circle at 80% 90%, rgba(0, 74, 180, 0.68), transparent 55%), rgba(6, 48, 91, 0.92); --project-image: url('assets/cargarage.png'); --project-position: center top;"
+            >
+              <div class="project-card__preview"></div>
+              <div class="project-card__mesh"></div>
+              <div class="project-card__shade"></div>
+              <div class="project-card__top">
+                <span class="project-card__year">2026</span>
+                <span class="project-card__arrow">
+                  <svg><use href="#icon-arrow-up-right"></use></svg>
+                </span>
+              </div>
+              <div class="project-card__number">04</div>
+              <div class="project-card__info">
+                <span>Car Garage</span>
+                <h3>Demo Site</h3>
+              </div>
+            </a>
+
+            <a
+              class="project-card project-card--has-preview"
+            href="https://ad-stevens.co.uk/"
+              target="_blank"
+              rel="noopener noreferrer"
+              style="--project-bg: radial-gradient(circle at 30% 20%, rgba(132, 97, 255, 0.8), transparent 55%), radial-gradient(circle at 80% 90%, rgba(159, 65, 227, 0.72), transparent 55%), rgba(43, 24, 88, 0.92); --project-image: url('assets/ad-stevens.png'); --project-position: center top;"
+            >
+              <div class="project-card__preview"></div>
+              <div class="project-card__mesh"></div>
+              <div class="project-card__shade"></div>
+              <div class="project-card__top">
+                <span class="project-card__year">2025</span>
+                <span class="project-card__arrow">
+                  <svg><use href="#icon-arrow-up-right"></use></svg>
+                </span>
+              </div>
+              <div class="project-card__number">05</div>
+              <div class="project-card__info">
+                <span>Author</span>
+                <h3>A.D Stevens</h3>
+              </div>
+            </a>
+
+            <a
+              class="project-card project-card--has-preview"
+            href="https://williamleebooks.co.uk/"
+              target="_blank"
+              rel="noopener noreferrer"
+              style="--project-bg: radial-gradient(circle at 30% 20%, rgba(0, 113, 255, 0.82), transparent 55%), radial-gradient(circle at 80% 90%, rgba(80, 94, 255, 0.72), transparent 55%), rgba(9, 41, 91, 0.92); --project-image: url('assets/drivinginstructor.JPEG'); --project-position: center top;"
+            >
+              <div class="project-card__preview"></div>
+              <div class="project-card__mesh"></div>
+              <div class="project-card__shade"></div>
+              <div class="project-card__top">
+                <span class="project-card__year">2025</span>
+                <span class="project-card__arrow">
+                  <svg><use href="#icon-arrow-up-right"></use></svg>
+                </span>
+              </div>
+              <div class="project-card__number">06</div>
+              <div class="project-card__info">
+                <span>Driving School</span>
+                <h3>Matt's Driving School</h3>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section reviews-section" id="reviews">
+        <div class="section__glow section__glow--reviews"></div>
+        <div class="container reviews-section__header">
+          <div class="section-heading section-heading--center" data-reveal>
+            <div class="eyebrow eyebrow--center"><span></span>Reviews<span></span></div>
+            <h2>
+              Loved by
+              <span class="text-gradient-vivid">small businesses.</span>
+            </h2>
+          </div>
+        </div>
+
+        <div class="reviews-marquee">
+          <div class="marquee marquee--reviews" data-marquee data-duration="44s" data-pause-on-hover="true">
+            <div class="marquee__group reviews-group">
+              <article class="review-card">
+                <div class="review-card__stars">
+                  <svg><use href="#icon-star"></use></svg>
+                  <svg><use href="#icon-star"></use></svg>
+                  <svg><use href="#icon-star"></use></svg>
+                  <svg><use href="#icon-star"></use></svg>
+                  <svg><use href="#icon-star"></use></svg>
+                </div>
+                <div class="review-card__quote">&rdquo;</div>
+                <p>
+                  &quot;Solaris AI is a must use. Created a website to use as a hub for my writing journey. Brilliant attention to detail, and really easy to communicate with when I needed things changing/adding. The website had clickable elements that adds a brilliant touch. I would 100% recommend someone to have a website produced by Solaris AI!&quot;
+                </p>
+                <div class="review-card__author">
+                  <span class="review-card__avatar">S</span>
+                  <span>
+                    <strong>William Lee</strong>
+                    <small>Sci-Fi Author</small>
+                  </span>
+                </div>
+              </article>
+
+              <article class="review-card">
+                <div class="review-card__stars">
+                  <svg><use href="#icon-star"></use></svg>
+                  <svg><use href="#icon-star"></use></svg>
+                  <svg><use href="#icon-star"></use></svg>
+                  <svg><use href="#icon-star"></use></svg>
+                  <svg><use href="#icon-star"></use></svg>
+                </div>
+                <div class="review-card__quote">&rdquo;</div>
+                <p>
+                  &quot;Fabulous service, been there to guide me each step of the way. Never not responded to any questions. Professional and quick. Still there at any point if I have an issues or updates always done promptly with constant updates.&quot;
+                </p>
+                <div class="review-card__author">
+                  <span class="review-card__avatar">J</span>
+                  <span>
+                    <strong>Andrew Stevens</strong>
+                    <small>Fantasy Author</small>
+                  </span>
+                </div>
+              </article>
+
+              <article class="review-card">
+                <div class="review-card__stars">
+                  <svg><use href="#icon-star"></use></svg>
+                  <svg><use href="#icon-star"></use></svg>
+                  <svg><use href="#icon-star"></use></svg>
+                  <svg><use href="#icon-star"></use></svg>
+                  <svg><use href="#icon-star"></use></svg>
+                </div>
+                <div class="review-card__quote">&rdquo;</div>
+                <p>
+                  &quot;I honestly can’t thank Mathew enough for all the help and support. I’d highly recommend Mathew to anyone who needs help with building or launching a website. He’s reliable, skilled, and genuinely cares about delivering the best results. I would give him 10 stars if I could.&quot;
+                </p>
+                <div class="review-card__author">
+                  <span class="review-card__avatar">P</span>
+                  <span>
+                    <strong>Danielle Hudson</strong>
+                    <small>Owner, Nail Salon</small>
+                  </span>
+                </div>
+              </article>
+
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section contact-section" id="contact">
+        <div class="container">
+          <div class="contact-card" data-reveal>
+            <div class="contact-card__glow contact-card__glow--right"></div>
+            <div class="contact-card__glow contact-card__glow--left"></div>
+            <div class="contact-card__grid">
+              <div class="contact-card__content">
+                <div class="eyebrow"><span></span>Get in touch</div>
+                <h2>
+                  Let&apos;s build
+                  <span class="text-gradient">your website now!</span>
+                </h2>
+                <p>
+                  Tell us about your project. Most quotes are back within 24
+                  hours.
+                </p>
+                <div class="contact-card__actions">
+                  <a
+                    class="btn btn--primary"
+                    href="mailto:admin@solarisai.co.uk?subject=New%20project%20enquiry"
+                  >
+                    <svg><use href="#icon-mail"></use></svg>
+                    <span>Email us</span>
+                  </a>
+                  <a class="btn btn--ghost" href="brief.html">
+                    <span>Try the Builder</span>
+                    <svg><use href="#icon-arrow-right"></use></svg>
+                  </a>
+                </div>
+              </div>
+
+              <div class="contact-card__meta">
+                <div class="contact-meta-box">
+                  <span class="contact-meta-box__icon">
+                    <svg><use href="#icon-mail"></use></svg>
+                  </span>
+                  <span>
+                    <small>Email</small>
+                    <a href="mailto:admin@solarisai.co.uk">admin@solarisai.co.uk</a>
+                  </span>
+                </div>
+                <div class="contact-meta-box">
+                  <span class="contact-meta-box__icon">
+                    <svg><use href="#icon-message"></use></svg>
+                  </span>
+                  <span>
+                    <small>Project starts</small>
+                    <strong>From &pound;299 - quoted per project</strong>
+                  </span>
+                </div>
+                <div class="contact-meta-box">
+                  <span class="contact-meta-box__icon">
+                    <svg><use href="#icon-phone"></use></svg>
+                  </span>
+                  <span>
+                    <small>Phone</small>
+                    <a href="tel:07557169678">07557 169678</a>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="site-footer__line"></div>
+      <div class="site-footer__glow site-footer__glow--left"></div>
+      <div class="site-footer__glow site-footer__glow--right"></div>
+
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand" data-reveal>
+            <h3>Solaris AI</h3>
+            <p>
+              Custom coding websites for all businesses while utilising modern
+              software to offer better prices.
+            </p>
+          </div>
+
+          <div class="footer-links" data-reveal>
+            <h4>Quick Links</h4>
+            <a href="#services">Services &amp; Pricing</a>
+            <a href="#examples">Examples</a>
+            <a href="#reviews">Testimonials</a>
+            <a href="#contact">Contact Me</a>
+          </div>
+
+          <div class="footer-contact" data-reveal>
+            <h4>Connect With Me</h4>
+            <div class="footer-contact__details">
+              <span><svg><use href="#icon-map-pin"></use></svg>Worcester, West Midlands, England</span>
+              <a href="tel:07557169678"><svg><use href="#icon-phone"></use></svg>07557 169678</a>
+              <a href="mailto:admin@solarisai.co.uk"><svg><use href="#icon-mail"></use></svg>admin@solarisai.co.uk</a>
+            </div>
+            <div class="social-grid">
+              <a
+                class="social-btn social-btn--facebook"
+                href="https://www.facebook.com/profile.php?id=61580148629984"
+                aria-label="Facebook"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <svg><use href="#icon-facebook"></use></svg>
+                <span>Follow me on<br />Facebook</span>
+              </a>
+              <a
+                class="social-btn social-btn--instagram"
+                href="https://www.instagram.com/solarisai.co.uk/"
+                aria-label="Instagram"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <svg><use href="#icon-instagram"></use></svg>
+                <span>Follow me on<br />Instagram</span>
+              </a>
+              <a
+                class="social-btn social-btn--tiktok"
+                href="https://www.tiktok.com/@getsolarisai?lang=en"
+                aria-label="TikTok"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <svg><use href="#icon-tiktok"></use></svg>
+                <span>Follow me on<br />Tiktok</span>
+              </a>
+              <a
+                class="social-btn social-btn--whatsapp"
+                href="https://wa.me/447557169678"
+                aria-label="Whatsapp"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <svg><use href="#icon-whatsapp"></use></svg>
+                <span>Message me on<br />WhatsApp</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-divider"></div>
+
+        <div class="footer-bottom">
+          <span>&copy; <span id="year"></span> Solaris AI. All rights reserved.</span>
+          <a href="#top" class="footer-logo" aria-label="Back to top">
+            <img src="assets/solaris-logo.png" alt="Solaris AI" />
+          </a>
+          <span>Hand-coded with care in the UK.</span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

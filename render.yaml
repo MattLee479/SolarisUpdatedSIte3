@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: solaris-ai-briefs
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app
+    envVars:
+      - key: MAILERSEND_API_TOKEN
+        sync: false
+      - key: FROM_EMAIL
+        value: admin@solarisai.co.uk
+      - key: FROM_NAME
+        value: Solaris AI
+      - key: TO_EMAIL
+        value: admin@solarisai.co.uk
