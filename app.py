@@ -130,13 +130,7 @@ def send_with_mailersend(brief_data: dict, brief_json: str, uploaded_files: list
     reply_to_name = (contact.get("contactName") or contact.get("businessName") or "").strip()
     submission_id = brief_data.get("submissionId") or uuid4().hex
 
-    attachments = [
-        {
-            "filename": "website-brief.txt",
-            "content": base64.b64encode(brief_json.encode("utf-8")).decode("utf-8"),
-            "disposition": "attachment",
-        }
-    ]
+    attachments = []
 
     for filename, content in uploaded_files:
         attachments.append(
@@ -153,8 +147,10 @@ def send_with_mailersend(brief_data: dict, brief_json: str, uploaded_files: list
         "subject": build_email_subject(brief_data),
         "html": build_email_html(brief_data, submission_id),
         "text": build_email_text(brief_data, submission_id),
-        "attachments": attachments,
     }
+
+    if attachments:
+        payload["attachments"] = attachments
 
     if reply_to_email:
         payload["reply_to"] = {"email": reply_to_email, "name": reply_to_name or reply_to_email}
